@@ -1,8 +1,27 @@
 <template>
-  <div>
-    <nuxt/>
+  <div class="font-sans">
+    <div class="container mx-auto px-4">
+      <div class="-mx-4 flex">
+        <div class="w-1/3 px-4">
+          <list-beer/>
+        </div>
+        <div class="w-2/3 px-4">
+          <nuxt/>
+        </div>
+      </div>
+    </div>
   </div>
 </template>
+
+<script>
+import ListBeer from "@/components/ListBeer.vue";
+
+export default {
+  components: {
+    ListBeer
+  }
+}
+</script>
 
 <style>
 html
@@ -20,34 +39,5 @@ html
 {
   box-sizing: border-box;
   margin: 0;
-}
-.button--green
-{
-  display: inline-block;
-  border-radius: 4px;
-  border: 1px solid #3b8070;
-  color: #3b8070;
-  text-decoration: none;
-  padding: 10px 30px;
-}
-.button--green:hover
-{
-  color: #fff;
-  background-color: #3b8070;
-}
-.button--grey
-{
-  display: inline-block;
-  border-radius: 4px;
-  border: 1px solid #35495e;
-  color: #35495e;
-  text-decoration: none;
-  padding: 10px 30px;
-  margin-left: 15px;
-}
-.button--grey:hover
-{
-  color: #fff;
-  background-color: #35495e;
 }
 </style>

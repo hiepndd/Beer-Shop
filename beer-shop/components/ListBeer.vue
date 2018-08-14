@@ -1,25 +1,28 @@
 <template>
    <div>
-     <input class="mt-10 ml-10" id="search" type="text" placeholder="Search for name" v-model="textSearch" @keyup.enter="search" >
-       <ul id="listBeer" class="list">
+     <search-beer
+      @searchChange="onSearchChange"
+     />
+      <ul id="listBeer" class="list">
         <li  v-for="beer in  listBeer" :key="beer.id" @click="select=beer">
           <nuxt-link class="no-underline text-black" :to="`/${beer.id}`" :listBeer="listBeer">
             {{ beer.name }}
           </nuxt-link>
         </li>
-
-       </ul>
+      </ul>
    </div>
 </template>
 <script>
 import axios from 'axios'
-export default {
+import SearchBeer from "@/components/SearchBeer";
 
+export default {
+ components: {
+   SearchBeer
+ },
  data() {
     return {
-       listBeer: [],
-     searchResult: [],
-     textSearch: '',
+      listBeer: [],
       select: '',
     }
   },
@@ -31,30 +34,13 @@ export default {
     })
   },
  methods: {
-  search(){
-       axios.get('https://api.punkapi.com/v2/beers?beer_name=' + this.textSearch).then(response => {
-         this.listBeer = response.data
-        //  if (this.listBeer.length === 0){document.getElementById('error').innerHTML = 'No Results Found'}
-        //  else {document.getElementById('error').innerHTML = ' '}
-        if (this.listBeer.length == 0){
-          this.listBeer = this.searchResult;
-        }
-       })
+  onSearchChange(result) {
+    this.listBeer = result
   },
-
  },
  watch: {
    textSearch: 'search',
-
  },
-//  computed: {
-//    filteredNames(){
-//      let filter = this.textSearch;
-//      this.searchResult = this.listBeer.filter(item => item.name.toUpperCase().includes(filter.toUpperCase()))
-//      return searchResult.length === 0 ? this.listBeer : this.searchResult;
-//    }
-//  }
-
 }
 </script>
 <style>
