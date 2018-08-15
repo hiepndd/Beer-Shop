@@ -1,5 +1,6 @@
 <template>
-  <nuxt-child :key="$route.params.id"/>
+
+<div></div>
 </template>
 
 <script>
@@ -12,6 +13,7 @@ export default {
     Logo,
     ListBeer,
   },
+
 };
 </script>
 

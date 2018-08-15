@@ -6,22 +6,29 @@
     placeholder="Search for name"
     v-model="textSearch"
     @keyup.enter="search"
+    v-on:input="debounceInput"
+
   >
 </template>
 
 <script>
 import axios from 'axios'
-import debounce from 'lodash/debounce'
+import _ from 'lodash'
 
   export default {
     data() {
       return {
         textSearch: '',
+
+
       }
     },
+    // directive: {debounce},
     watch: {
       textSearch(val) {
-        debounce(this.search(val), 500)
+
+          // setTimeout(this.search(val),500);
+          this.search(val);
       }
     },
     methods: {
@@ -32,11 +39,15 @@ import debounce from 'lodash/debounce'
         } catch (error) {
           console.log(error)
         }
-      }
+      },
+      debounceInput: _.debounce (function(e)  {
+
+            this.textSearch = e.target.value;
+      }, 2000)
     },
   }
 </script>
 
-<style scoped>
+<style >
 
 </style>

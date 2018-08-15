@@ -24,6 +24,7 @@ export default {
     return {
       listBeer: [],
       select: '',
+
     }
   },
   created(){
@@ -44,15 +45,10 @@ export default {
 }
 </script>
 <style>
-@import url('https://fonts.googleapis.com/css?family=Bitter|Josefin+Sans');
-@import url('https://fonts.googleapis.com/css?family=Lekton');
+
 .container
 {
-  /* min-height: 100vh;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  text-align: center; */
+
 
 }
 .title

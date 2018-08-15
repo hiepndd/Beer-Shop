@@ -5,7 +5,7 @@
         <div class="w-1/3 px-4">
           <list-beer/>
         </div>
-        <div class="w-2/3 px-4">
+        <div class="w-2/3 px-4 mx-10 pt-10">
           <nuxt/>
         </div>
       </div>

@@ -2,19 +2,14 @@
   <div>
     <h3>{{ beer.name }}</h3>
     <h1 class="text-base mt-10">{{ beer.description }}</h1>
+    <img class="mt-10" :src="beer.image_url" alt="">
   </div>
 </template>
 
 <script>
 import axios from "axios";
-// import BeerDetail from '~/components/BeerDetail.vue'
-
 export default {
-  data() {
-    return {
-      id: this.$route.params.id,
-    };
-  },
+
   async asyncData({ params, error }) {
     try {
       const { data } = await axios.get(
@@ -24,6 +19,7 @@ export default {
         beer: data[0]
       };
     } catch (e) {
+      console.log(e)
       error({ message: "User not found", statusCode: 404 });
     }
   }
@@ -31,8 +27,7 @@ export default {
 </script>
 
 <style scoped>
-@import url("https://fonts.googleapis.com/css?family=Bitter|Josefin+Sans");
-@import url("https://fonts.googleapis.com/css?family=Lekton");
+
 img {
   height: 500px;
   width: auto;

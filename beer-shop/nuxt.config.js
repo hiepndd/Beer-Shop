@@ -14,7 +14,13 @@ module.exports = {
       { hid: 'description', name: 'description', content: pkg.description }
     ],
     link: [
-      { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' }
+      { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' },
+      {rel: 'stylesheet', href : "https://fonts.googleapis.com/css?family=Lekton"},
+      {rel: 'stylesheet', href : "https://fonts.googleapis.com/css?family=Bitter"},
+      {rel: 'stylesheet', href : "https://fonts.googleapis.com/css?family=Josefin+Sans"},
+
+
+
     ]
   },
 
@@ -27,7 +33,7 @@ module.exports = {
   ** Global CSS
   */
   css: [
-    '~/assets/css/main.css'
+    '~/assets/css/main.css',
     '~/assets/css/tailwind.css'
   ],
 
