@@ -38,6 +38,7 @@ export default {
   onSearchChange(result) {
     this.listBeer = result
   },
+
  },
  watch: {
    textSearch: 'search',
